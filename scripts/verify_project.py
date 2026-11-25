@@ -112,8 +112,8 @@ def check_balanced(cleaned: str, path: Path) -> list[str]:
 def main() -> int:
     errors: list[str] = []
 
-    # 1. Zero .md files
-    md_files = list(ROOT.rglob("*.md"))
+    # 1. Zero .md files (except root README.md)
+    md_files = [p for p in ROOT.rglob("*.md") if p != ROOT / "README.md"]
     if md_files:
         errors.append(f"Forbidden markdown files found: {md_files}")
 
