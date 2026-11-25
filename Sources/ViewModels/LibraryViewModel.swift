@@ -38,11 +38,11 @@ final class LibraryViewModel {
     init(
         libraryService: PhotoLibraryService = PhotoLibraryService(),
         compressionEngine: CompressionEngine = CompressionEngine(),
-        statsStore: LifetimeStatsStore = LifetimeStatsStore()
+        statsStore: LifetimeStatsStore? = nil
     ) {
         self.libraryService = libraryService
         self.compressionEngine = compressionEngine
-        self.statsStore = statsStore
+        self.statsStore = statsStore ?? LifetimeStatsStore()
         self.authorizationStatus = libraryService.currentAuthorizationStatus()
     }
 

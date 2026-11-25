@@ -223,7 +223,7 @@ final class PhotoLibraryService {
             ?? resources.first
 
         var sizeBytes: Int64 = 0
-        if let resource = primaryResource, resource.responds(to: Selector(("fileSize"))) {
+        if let resource = primaryResource, resource.responds(to: NSSelectorFromString("fileSize")) {
             if let num = resource.value(forKey: "fileSize") as? NSNumber {
                 sizeBytes = num.int64Value
             }
